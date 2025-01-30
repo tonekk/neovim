@@ -55,6 +55,11 @@ map("n", "<leader>rn", function()
   require("neotest").run.run()
 end, { desc = "ﭧ execute nearest spec(s)" })
 
+-- neogit
+map("n", "<leader>gg", function()
+  require("neogit").open { kind = "split" }
+end, { desc = "open neogit" })
+
 -- Unmap nvchad defaults
 
 local nomap = vim.keymap.del
