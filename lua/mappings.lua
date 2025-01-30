@@ -11,7 +11,7 @@ map("n", "<leader><leader>", ":Telescope find_files<cr>")
 local nvim_tmux_nav = require "nvim-tmux-navigation"
 
 map("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft, { desc = "Move left" })
-map("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateUp, { desc = "Move down" })
+map("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown, { desc = "Move down" })
 map("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp, { desc = "Move up" })
 map("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight, { desc = "Move right" })
 
@@ -43,8 +43,17 @@ map(
   ':let @+ = "bin/rspec " . expand("%") . ":" . line(".") <CR>',
   { desc = "ﭧ copy nearest test for rspec" }
 )
-map("n", "<leader>tf", ':let @+ = expand("%") <CR>', { desc = "ﭧ copy test file" })
-map("n", "<leader>tn", ':let @+ = expand("%") . ":" . line(".") <CR>', { desc = "ﭧ copy nearest test [file:line]" })
+
+-- neotest
+map("n", "<leader>rf", function()
+  local neotest = require "neotest"
+  neotest.output_panel.clear()
+  neotest.output_panel.open()
+  neotest.run.run(vim.fn.expand "%")
+end, { desc = "ﭧ execute all specs in file" })
+map("n", "<leader>rn", function()
+  require("neotest").run.run()
+end, { desc = "ﭧ execute nearest spec(s)" })
 
 -- Unmap nvchad defaults
 
