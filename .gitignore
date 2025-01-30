@@ -1,0 +1,6 @@
+base46/
+lazy/
+lua/configs/cmp.lua
+lua/configs/trouble.lua
+mason/
+telescope_history
