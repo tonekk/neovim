@@ -10,10 +10,10 @@ map("n", "<leader><leader>", ":Telescope find_files<cr>")
 -- NvimTmuxNavigation
 local nvim_tmux_nav = require "nvim-tmux-navigation"
 
-map("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft, { desc = "Move left" })
-map("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown, { desc = "Move down" })
-map("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp, { desc = "Move up" })
-map("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight, { desc = "Move right" })
+map({ "n", "t" }, "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft, { desc = "Move left" })
+map({ "n", "t" }, "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown, { desc = "Move down" })
+map({ "n", "t" }, "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp, { desc = "Move up" })
+map({ "n", "t" }, "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight, { desc = "Move right" })
 
 map({ "n", "i", "t", "v" }, "<C-q>", ":qall!<cr>", { desc = "quit" })
 
