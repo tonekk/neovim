@@ -12,6 +12,14 @@ return {
         "ruby",
         "lua",
       },
+      indent = {
+        enable = true,
+        disable = { "python", "ruby" },
+      },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = { "ruby" },
+      },
     },
   },
   -- load luasnips + cmp related in insert mode only
